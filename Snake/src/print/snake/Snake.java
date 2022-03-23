@@ -14,7 +14,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import lombok.*;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -25,9 +24,9 @@ public class Snake extends JPanel {
 	private final int windowHeight;
 	private final int widhtSnake = 20;
 	private final int heightSnake = 20;
-	@Getter private Point snake = new Point();
+	private Point snake = new Point();
 	private Point apple = new Point();
-	@Getter @Setter private int direccion = VK_LEFT;
+	private int direccion = VK_LEFT;
 	private List<Point> list = new ArrayList<Point>();
 	private boolean gameOver = false;
 	private int frecuencia = 80;
@@ -47,6 +46,18 @@ public class Snake extends JPanel {
 		SnakeThread thread = new SnakeThread();
 		thread.start();
 		this.setBackground(Color.green.darker().darker());
+	}
+
+	public Point getSnake() {
+		return this.snake;
+	}
+
+	public int getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
 	}
 	
 	@Override

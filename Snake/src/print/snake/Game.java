@@ -11,11 +11,8 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import lombok.Getter;
-import lombok.Setter;
 
 
 public class Game extends JFrame {
@@ -26,7 +23,7 @@ public class Game extends JFrame {
 	private Snake snake =  new Snake(widht, height);
 	private static Game frame = new Game();
 	private static GameOver frameOver = new GameOver(widht, height);
-	@Getter @Setter public static int score = 0;
+	public static int score = 0;
 	private ImageIcon icon = new ImageIcon("src\\img\\icon.png");
 	
 	public static void main(String[] args) {
@@ -40,7 +37,7 @@ public class Game extends JFrame {
 			}
 		});
 	}
-	
+
 	public Game() {
 		setTitle("Snake");
 		setSize(widht, height);
@@ -90,5 +87,12 @@ public class Game extends JFrame {
 		frameOver.setVisible(false);
 	}
 	
+	public static int getScore() {
+		return Game.score;
+	}
+
+	public static void setScore(int score) {
+		Game.score = score;
+	}
 
 }
