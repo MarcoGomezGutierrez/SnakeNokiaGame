@@ -47,18 +47,6 @@ public class Snake extends JPanel {
 		thread.start();
 		this.setBackground(Color.green.darker().darker());
 	}
-
-	public Point getSnake() {
-		return this.snake;
-	}
-
-	public int getDireccion() {
-		return this.direccion;
-	}
-
-	public void setDireccion(int direccion) {
-		this.direccion = direccion;
-	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
@@ -99,7 +87,7 @@ public class Snake extends JPanel {
 		g2d.setColor(new Color(255, 0, 0));
 		g2d.drawImage(manzana.getImage(), apple.x, apple.y, widhtApple, heightApple, null);
 		
-		
+		//Colision
 		if ((snake.x > (apple.x - widhtApple)) && (snake.x < (apple.x + widhtApple)) && (snake.y > (apple.y - heightApple)) && (snake.y < (apple.y + heightApple))) {
 			apple.x = random(windowWidht);
 			apple.y = random(windowHeight);
@@ -116,6 +104,18 @@ public class Snake extends JPanel {
 	
 	private int random(int rango) {
 		return new Random().nextInt(rango - 100);
+	}
+	
+	public int getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
+	
+	public Point getSnake() {
+		return snake;
 	}
 	
 	private class SnakeThread extends Thread {

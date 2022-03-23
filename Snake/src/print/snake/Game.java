@@ -37,7 +37,7 @@ public class Game extends JFrame {
 			}
 		});
 	}
-
+	
 	public Game() {
 		setTitle("Snake");
 		setSize(widht, height);
@@ -88,11 +88,10 @@ public class Game extends JFrame {
 	}
 	
 	public static int getScore() {
-		return Game.score;
+		return score;
 	}
 
 	public static void setScore(int score) {
 		Game.score = score;
 	}
-
 }
